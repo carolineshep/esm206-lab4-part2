@@ -9,4 +9,36 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##
+## Install Packages
+
+```{r}
+# Packages
+library(tidyverse)
+library(palmerpenguins)
+library(plotly)
+library(DT)
+
+# install.packages("") in CONSOLE
+```
+
+# Create interactive plot with penguins data
+
+Scatter plot of penguin flipper_length_mm (x axis) and body_mass_g (y axis)
+```{r}
+penguins_graph <- ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species))
+
+ggplotly(penguins_graph)
+```
+
+## Graph won't show up here because all we're doing is *storing* this graph under the name "penguins_graph"
+
+## See below - actually showing the graph
+
+```{r}
+penguins_graph
+```
+```{r}
+datatable(penguins)
+```
+
